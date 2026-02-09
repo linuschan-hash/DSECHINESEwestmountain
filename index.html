@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《始得西山宴遊記》深度剖析 (最終學術定稿版)</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap');
+        
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Serif TC', serif; line-height: 1.9; margin: 0; background: linear-gradient(to bottom, #fdfaf6, #f4efe8); color: #3d3d3d; }
+
+        header { background: linear-gradient(rgba(45, 58, 52, 0.85), rgba(64, 78, 72, 0.95)), url(https://images.unsplash.com/photo-1542693587-09062b047a27?w=800) no-repeat center center; background-size: cover; color: #fdfaf6; text-align: center; padding: 4rem 2rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); }
+        header h1 { margin: 0; font-size: 3rem; font-weight: 700; letter-spacing: 3px; }
+        header p { margin: 0.8rem 0 0; font-size: 1.2rem; opacity: 0.85; }
+        
+        nav { background-color: #3a4b44; padding: 0.8rem 1rem; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); }
+        nav a { cursor: pointer; color: #e8e2d9; text-decoration: none; margin: 0 15px; font-size: 1.05rem; font-weight: 600; padding: 10px 5px; transition: color 0.4s, border-bottom-color 0.4s; border-bottom: 3px solid transparent; }
+        nav a:hover, nav a.active { color: #ffffff; border-bottom-color: #c5b8a1; }
+
+        main { max-width: 850px; margin: 3rem auto; padding: 0 25px; }
+        
+        main > section { display: none; }
+        main > section.active { display: block; }
+        
+        section { background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); margin-bottom: 2.5rem; padding: 2.5rem; border-radius: 10px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); border: 1px solid #e9e2d7; border-top: 6px solid #a89a85; }
+        
+        h2 { font-size: 2rem; font-weight: 700; color: #4a5a53; border-bottom: 3px solid #d4c2a7; padding-bottom: 0.8rem; margin-bottom: 2rem; }
+        h3 { font-size: 1.4rem; color: #4a5a53; margin-top: 2rem; border-left: 4px solid #a89a85; padding-left: 10px; }
+        h4 { font-size: 1.2rem; color: #3a3a3a; }
+
+        .daily-quote-container { background-color: #f7f3ed; border-left: 5px solid #a89a85; border-radius: 8px; padding: 2rem; text-align: center; margin: 2.5rem auto; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+        #daily-quote .quote-text { font-size: 1.8rem; font-family: 'KaiTi', 'STKaiti', cursive; font-weight: bold; color: #3a3a3a; }
+        #daily-quote .quote-author { font-size: 1.1rem; color: #777; margin-top: 1.5rem; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.95rem; }
+        table th, table td { border: 1px solid #e0d9cd; padding: 12px; text-align: left; }
+        table th { background-color: #f2eee8; color: #4a5a53; }
+        
+        /* --- 測驗專用樣式 --- */
+        .question { margin-bottom: 2rem; }
+        .mc-option { margin: 0.5rem 0; display: block; }
+        .feedback { margin-left: 15px; font-weight: bold; }
+        .feedback.correct { color: #28a745; }
+        .feedback.incorrect { color: #dc3545; }
+        #score-display { text-align: center; margin-top: 2rem; font-size: 1.5rem; color: #4a5a53; }
+        #score-display small { font-size: 0.9rem; color: #777; display: block; margin-top: 0.5rem; }
+        textarea { width: 95%; height: 150px; font-family: 'Noto Serif TC', serif; font-size: 1rem; padding: 15px; border: 1px solid #ddd; border-radius: 4px; margin-top: 10px; }
+        .answer { background-color: #f7f3ed; border: 1px dashed #d4c2a7; padding: 15px; margin-top: 15px; border-radius: 5px; display: none; }
+        
+        button { background-color: #4a5a53; color: white; border: none; padding: 12px 25px; font-size: 1.1rem; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; margin-top: 1.5rem; display: block; margin-left: auto; margin-right: auto; }
+        button:hover { background-color: #687870; }
+
+        footer { text-align: center; padding: 2rem; margin-top: 3rem; background-color: #333d38; color: #b0b0b0; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>《始得西山宴遊記》深度剖析</h1>
+        <p>一場由心靈桎梏到萬物冥合的旅程</p>
+    </header>
+
+    <nav>
+        <a data-target="home">首頁</a>
+        <a data-target="analysis">全文賞析</a>
+        <a data-target="themes">主旨與象徵</a>
+        <a data-target="techniques">寫作手法</a>
+        <a data-target="glossary">字詞注解</a>
+        <a data-target="discussion">進階思辨</a>
+        <a data-target="quiz">線上測驗</a>
+    </nav>
+
+    <main>
+        <section id="home" class="active">
+            <h2>首頁</h2>
+            <div class="intro-text"><p>歡迎來到《始得西山宴遊記》深度剖析。本網站將帶您一同跟隨柳宗元的腳步，探索西山的奇特之景，並感受他「心凝形釋，與萬化冥合」的超然境界。</p></div>
+            <div class="daily-quote-container">
+                <h3>每日名言</h3>
+                <div id="daily-quote"><p class="quote-text"></p><p class="quote-author"></p></div>
+            </div>
+        </section>
+
+        <section id="analysis">
+            <h2>全文賞析</h2>
+            <article><h4>2.1 始得西山前：漫漫而遊</h4><p>描述作者被貶後「恒惴慄」的心情，以及為了排解憂愁而「施施而行，漫漫而遊」的狀態。此時的遊覽是漫無目的、被動的，為後文發現西山的「怪特」作鋪墊。</p></article>
+            <article><h4>2.2 發現與攀登：始指異之</h4><p>描述作者偶然「指異」西山，並決心前往的過程。詳細解說「斫榛莽，焚茅茷，窮山之高而止」的艱辛，突顯此行的主動性與目的性。</p></article>
+            <article><h4>2.3 西山之巔：心凝形釋</h4><p>集中呈現作者登上西山後所見的壯麗景色：「凡數州之土壤，皆在衽席之下」。分析此景如何讓作者感受到西山的「特立」，並引發其「悠悠乎與顥氣俱」的感悟。</p></article>
+            <article><h4>2.4 心境昇華：遊於是乎始</h4><p>描述作者「引觴滿酌，頹然就醉」的宴遊之樂。闡釋作者最終領悟「然後知吾嚮之未始遊，遊於是乎始」的真正含義：「真遊」更在於精神上的超脫與自由。</p></article>
+        </section>
+
+        <section id="themes">
+            <h2>主旨與象徵</h2>
+            <h3>3.1 核心主旨</h3><p>本文通過作者遊西山前後心境的轉變，探討了「真遊」的定義，並最終表達了作者融入自然、物我合一，達到精神絕對自由的超然思想。</p>
+            <h3>3.2 象徵寓意</h3>
+            <table><thead><tr><th>本體</th><th>象徵 / 寄寓</th></tr></thead><tbody><tr><td>西山</td><td>懷才不遇、品格清高的人才（作者自況）</td></tr><tr><td>高峻、特立</td><td>才華卓越、品格高尚，不與世俗同流合污</td></tr><tr><td>培塿、榛莽</td><td>嫉賢妒能、阻礙賢路的小人</td></tr></tbody></table>
+        </section>
+
+        <section id="techniques">
+            <h2>寫作手法</h2>
+            <article>
+                <h4>對比和襯托</h4>
+                <p>這是本文結構和思想的核心手法。作者巧妙地設置了多重對比：<br>
+                <strong>1. 心情對比：</strong>以遊西山前的「恒惴慄」、漫無目的，與登上西山後的「心凝形釋」、「與萬化冥合」形成鮮明對比，突顯了西山之遊對作者心靈的滌蕩和精神的昇華。<br>
+                <strong>2. 景物襯托：</strong>以永州其他山丘的平凡，即「培塿」，來反襯西山的「怪特」和「特立」，這不僅是寫景，更是藉此象徵作者自己不與世俗同流合污的孤高品格。</p>
+                <h4>情景交融</h4>
+                <p>作者並非客觀地描寫山水，而是將自己的情感和遭遇完全投射到景物之中，使山水成為了作者內心世界的寫照。西山的高峻、奇特、被榛莽遮蔽，正是作者懷才不遇、品格高潔卻不為人知的自我象徵。當他登上西山之巔，所見的開闊景象，直接引發了他內心的豁然開朗，景為情開，情因景生，達到了物我兩忘的境界。</p>
+                <h4>駢散結合</h4>
+                <p>文章以流暢的散文為主體，用於敘事和抒發議論，但在描寫景物時，則巧妙地運用了駢文的對偶句式，使文氣跌宕，富有節奏感和音律美。例如「岈然洼然，若垤若穴」用簡潔的對偶描繪了群山的形態；「縈青繚白，外與天際」則用色彩和空間的對仗，描繪出極目遠眺的壯闊畫面，極大地增強了文章的表現力和感染力。</p>
+            </article>
+        </section>
+
+        <section id="glossary">
+            <h2>字詞注解</h2>
+            <table><thead><tr><th>字詞</th><th>讀音 / 備註</th><th>解釋</th></tr></thead><tbody><tr><td>僇</td><td>lù</td><td>罪、受辱</td></tr><tr><td>惴慄</td><td>zhuì lì</td><td>恐懼、戰慄</td></tr><tr><td>斫</td><td>zhuó</td><td>砍伐</td></tr><tr><td>垤</td><td>dié</td><td>蟻窩口堆積的浮土</td></tr><tr><td>隙</td><td>xì</td><td>空閒</td></tr><tr><td>徒</td><td>tú</td><td>同志、同伴</td></tr><tr><td>窮</td><td>qióng</td><td>盡，走到盡頭</td></tr><tr><td>披草</td><td>-</td><td>撥開草叢</td></tr><tr><td>極</td><td>jí</td><td>至，到達</td></tr><tr><td>趣</td><td>通「趨」</td><td>向、往</td></tr><tr><td>覺</td><td>jué</td><td>醒</td></tr><tr><td>箕踞</td><td>jī jù</td><td>雙腳張開而坐，形象箕，是不拘禮節的坐姿</td></tr><tr><td>衽席</td><td>rèn xí</td><td>坐席、臥席，席通「蓆」</td></tr><tr><td>岈</td><td>yá</td><td>深谷</td></tr><tr><td>尺寸千里</td><td>-</td><td>眼前尺寸之間，實則相隔千里之遙</td></tr><tr><td>攢</td><td>cuán</td><td>聚集</td></tr>
+                    <tr><td>蹙</td><td>cù</td><td>緊迫，收縮</td></tr>
+                    <tr><td>遯隱</td><td>dùn yǐn</td><td>隱藏、隱沒不見</td></tr>
+      
+                    <tr><td>縈青繚白</td><td>-</td><td>青山白水綢繆纏繞</td></tr>
+                    <tr><td>際</td><td>jì</td><td>相連、匯合</td></tr>
+                    <tr><td>洋洋</td><td>yáng yáng</td><td>廣大無涯的樣子</td></tr>
+                    <tr><td>與造物者遊</td><td>-</td><td>與天地自然合而為一</td></tr>
+                    <tr><td>引</td><td>yǐn</td><td>取，拿起</td></tr>
+                    <tr><td>頹然</td><td>tuí rán</td><td>倒下，此指酒醉貌</td></tr>
+                    <tr><td>蒼</td><td>cāng</td><td>深青色</td></tr>
+                    <tr><td>心凝形釋</td><td>-</td><td>心神凝聚安定，形體解脫不受拘束</td></tr>
+                    <tr><td>與萬化冥合</td><td>-</td><td>自身與萬物暗中相合，達到物我合一</td></tr>
+                    <tr><td>未始</td><td>-</td><td>不曾</td></tr>
+                    <tr><td>志</td><td>zhì</td><td>記，通「誌」</td></tr>
+                 </tbody>
+            </table>
+        </section>
+        
+        <section id="discussion">
+            <h2>進階思辨</h2>
+            <article>
+                <h4>議題一：莊子思想的體現</h4>
+                <p><strong>問題：</strong>有人認為柳宗元被貶是「無用」的表現，若以《逍遙遊》的觀點，莊子會如何評價？</p>
+                <p><strong>解析：</strong>柳宗元在政治上遭受重大挫敗，從世俗標準來看，他被貶謫至偏遠的永州，是失去了權力與地位的「無用」之人。然而，若從《莊子・逍遙遊》中「無用之用，方為大用」的哲學觀點來看，這次貶謫恰恰成就了柳宗元。<br>
+                <strong>1. 保全性命：</strong>脫離了險惡的朝廷鬥爭，使他得以在政治風波中保全自身，免於更大的禍害。<br>
+                <strong>2. 精神解脫：</strong>正因為被剝奪了功名利祿的束縛，他才有機會將目光轉向山水自然，從「恒惴慄」的憂懼中解脫出來。<br>
+                <strong>3. 境界提升：</strong>這種看似「無用」的閒暇，讓他得以「與萬化冥合」，獲得了比官場得意更為深刻和寶貴的人生體悟與精神自由。因此，世俗的「無用」最終成就了精神層面的「大用」。</p>
+            </article>
+            <article>
+                <h4>議題二：「得」與「失」的辯證</h4>
+                <p><strong>問題：</strong>綜觀全文，作者在西山之巔究竟「得」到了什麼？這與他的「失」有何關係？</p>
+                <p><strong>解析：</strong>柳宗元在西山之遊中，深刻地體驗了「得」與「失」的辯證關係。他明確「失」去了在朝為官的地位、功名以及實現政治抱負的機會，這是物質與世俗層面的巨大損失。然而，正是這次「失」，讓他「得」到了前所未有的收穫：<br>
+                <strong>1. 視角的轉變：</strong>他「得」到了一個全新的看世界的視角。登上西山之巔，「尺寸千里，皆在衽席之下」，這種俯瞰眾生的視角讓他意識到個人得失在浩瀚宇宙中的渺小。<br>
+                <strong>2. 精神的自由：</strong>他「得」到了從「恒惴慄」的精神枷鎖中解脫出來的自由，達到了「心凝形釋」的寧靜狀態。<br>
+                <strong>3. 境界的提升：</strong>他「得」到了「與萬化冥合」的物我兩忘境界，這是一種遠超世俗成敗的、更高層次的生命滿足感。因此，柳宗元的經歷完美詮釋了「失」可以成為「得」的契機。當一個人被迫放下對外在事物的執著時，反而可能開啟一扇通往內心世界的大門，獲得更為寶貴的精神財富。</p>
+            </article>
+        </section>
+
+        <section id="quiz">
+            <h2>線上測驗</h2>
+            <div id="quiz-container"></div>
+            <div id="score-display"></div>
+            <button onclick="markQuiz()">批改及評分</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>CNEC Lau Wing Sang Secondary School - 網頁設計示例</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const navLinks = document.querySelectorAll('nav a');
+            const sections = document.querySelectorAll('main > section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = e.target.getAttribute('data-target');
+                    sections.forEach(section => section.classList.remove('active'));
+                    const targetSection = document.getElementById(targetId);
+                    if(targetSection) targetSection.classList.add('active');
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    e.target.classList.add('active');
+                });
+            });
+            document.querySelector('nav a[data-target="home"]').classList.add('active');
+
+            const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+            
+            const quotes = [
+                 { text: "萬物靜觀皆自得，四時佳興與人同。", author: "程顥" },{ text: "境由心造，相由心生。", author: "佛家語" },{ text: "胸中脫去塵濁，自然丘壑內營。", author: "《菜根譚》" },{ text: "一花一世界，一葉一菩提。", author: "佛家語" },{ text: "人心不僅僅是受環境所感化，它也能感化環境。", author: "現代語彙" },{ text: "世界不缺少美，而是缺少發現美的眼睛。", author: "羅丹" },{ text: "心隨萬境轉，轉處實能幽。", author: "唐·盤山寶積" },{ text: "外物之勝，皆由內心之發。", author: "王陽明" },{ text: "心若不動，風又奈何？你若不傷，歲月無恙。", author: "佚名" },{ text: "心遠地自偏。", author: "陶淵明" },{ text: "一燈能除千年暗，一智能滅萬年愚。", author: "《六祖壇經》" },{ text: "心中有山水，處處是桃源。", author: "佚名" },{ text: "換一個視角，天地便換了一個模樣。", author: "佚名" },{ text: "不為外物所動，方能見其本真。", author: "佚名" },{ text: "眼界決定境界，格局決定结局。", author: "佚名" },{ text: "心之所向，便是陽光。", author: "佚名" },{ text: "世界是你內心的投射。", author: "佚名" },{ text: "與其抱怨黑暗，不如點燃蠟燭。", author: "佚名" },{ text: "萬物皆備於我矣。", author: "《孟子》" },{ text: "清風明月本無價，近水遠山皆有情。", author: "梁章鉅" }
+            ];
+            const selectedQuote = quotes[dayOfYear % quotes.length];
+            document.querySelector('#daily-quote .quote-text').textContent = selectedQuote.text;
+            document.querySelector('#daily-quote .quote-author').textContent = `—— ${selectedQuote.author}`;
+            
+            const questionSets = [
+                { 
+                    mc1: {id:1, text:"1. 發現西山前，作者心情如何？ (1分)", options:["A. 意氣風發","B. 心情平靜","C. 恐懼不安","D. 悲憤交加"], answer:{correct:"C",explanation:"作者當時「恒惴慄」，故遊覽時心情恐懼不安。"}},
+                    mc2: {id:2, text:"2. 文中「培塿」比喻什麼？ (1分)", options:["A. 作者品格","B. 平凡山丘","C. 遠大志向","D. 自然風光"], answer:{correct:"B",explanation:"「培塿」指小土堆，用以反襯西山的高峻。"}},
+                    long_medium: {id:3, text:"3.【中/2分】說明「遊於是乎始」的含義。", answer:"指作者認為以前的遊覽不算「真遊」。真正的遊覽是心靈與自然融合，獲得精神上的絕對自由，不再為外物所拘束。", keywords: ["真遊", "心靈", "精神", "自由", "融合"]},
+                    long_high_1: {id:9, text:"4.【高/3分】作者如何運用「對比和襯托」的手法來深化主題？", answer:"本文運用了多重對比：<br>1. <strong>心情對比：</strong>以遊西山前的「恒惴慄」對比遊後的「心凝形釋」，突顯心靈的昇華。<br>2. <strong>景物襯托：</strong>以「培塿」的平凡襯托西山的「怪特」，象徵作者不與世俗同流合污的孤高品格。", keywords: ["心情", "對比", "景物", "襯托", "培塿", "特立"]},
+                    long_high_2: {id:4, text:"5.【思辨/3分】柳宗元是古文運動倡導者，講求文以載道。本文「承載」了怎樣的「道」？", answer:"1. <strong>安身立命之道</strong>：在逆境中通過與自然冥合，超越個人榮辱，獨善其身。<br>2. <strong>物我關係之道</strong>：探討天人合一，人的最高價值可在與自然的融合中實現。<br>3. <strong>對「真」的追求之道</strong>：通過分辨「假遊」與「真遊」，傳達對內心澄明和精神自由的追求。", keywords: ["安身立命", "天人合一", "獨善其身", "超越", "真遊"]}
+                },
+                { 
+                    mc1: {id:5, text:"1. 登西山所見景象不含？ (1分)", options:["A. 凡數州之土壤","B. 尺寸千里","C. 縈青繚白","D. 蒼然暮色"], answer:{correct:"D",explanation:"「蒼然暮色」是時間變化，非山巔所見空間全景。"}},
+                    mc2: {id:6, text:"2. 「嚮之未始遊」的根本原因是？ (1分)", options:["A. 沒找到好風景","B. 天氣不好","C. 沒帶酒","D. 心有掛礙"], answer:{correct:"D",explanation:"關鍵在於當時心存「惴慄」，精神未得解脫。"}},
+                    long_medium: {id:7, text:"3.【中/2分】登上西山的過程有何象徵意義？", answer:"過程充滿主動性，象徵作者主動擺脫精神困頓，尋找心靈突破口。西山被榛莽遮蔽也象徵賢才被埋沒，需要有心人發掘。", keywords: ["主動", "擺脫", "突破口", "象徵", "賢才"]},
+                    long_high_1: {id:10, text:"4.【高/3分】分析「尺寸千里」和「皆在衽席之下」這兩組視覺描寫，如何體現作者心境的轉變？", answer:"「尺寸千里」描述了極目遠眺所見的廣闊空間被壓縮的視覺奇觀，而「皆在衽席之下」則是一種主觀感受，將廣大的數州之地視為僅在自己的坐席之下。這從客觀描寫轉向主觀感受，體現了作者因視野開闊而帶來的豪邁心境，彷彿超越了物理空間的限制，萬物皆備於我。", keywords: ["尺寸千里", "衽席", "主觀", "客觀", "超越", "豪邁"]},
+                    long_high_2: {id:8, text:"5.【思辨/3分】結合柳宗元遭遇，分析「心凝形釋，與萬化冥合」的哲理。", answer:"此境界體現了作者對自我價值的重新定義。西山的「特立」象徵作者的孤高，但他不再執著於與世俗的格格不入，而是將自我融入宇宙（萬化），認識到個體價值在於與天地精神相通，超越了世俗的成敗得失。這是一種「無用之用」的智慧。", keywords: ["特立", "冥合", "超越", "得失", "無用之用", "價值"]}
+                }
+            ];
+            
+            window.todayQuestionSet = questionSets[dayOfYear % questionSets.length];
+            const quizContainer = document.getElementById('quiz-container');
+            let quizHtml = '<h3>第一部分：選擇題</h3>';
+            [window.todayQuestionSet.mc1, window.todayQuestionSet.mc2].forEach(q => {
+                quizHtml += `<div class="question"><p><strong>${q.text}</strong><span id="feedback-${q.id}" class="feedback"></span></p>`;
+                q.options.forEach(opt => { quizHtml += `<label class="mc-option"><input type="radio" name="q${q.id}" value="${opt.charAt(0)}"> ${opt}</label>`; });
+                quizHtml += `<div class="answer" id="ans${q.id}"><p><strong>參考答案：${q.answer.correct}</strong><br>${q.answer.explanation}</p></div></div>`;
+            });
+            quizHtml += '<h3>第二部分：長問題 (關鍵詞評分)</h3>';
+            [window.todayQuestionSet.long_medium, window.todayQuestionSet.long_high_1, window.todayQuestionSet.long_high_2].forEach(q => {
+                 quizHtml += `<div class="question" id="q-container-${q.id}"><p><strong>${q.text}</strong><span id="feedback-${q.id}" class="feedback"></span></p><textarea id="ta-${q.id}" placeholder="請在此輸入你的答案..."></textarea><div class="answer" id="ans${q.id}"><p><strong>參考答案：</strong><br>${q.answer}</p></div></div>`;
+            });
+            quizContainer.innerHTML = quizHtml;
+        });
+
+        function markQuiz() {
+            let mcScore = 0;
+            let longScore = 0;
+            const qSet = window.todayQuestionSet;
+
+            [qSet.mc1, qSet.mc2].forEach(q => {
+                const userAnswer = document.querySelector(`input[name="q${q.id}"]:checked`);
+                const feedbackEl = document.getElementById(`feedback-${q.id}`);
+                if (userAnswer && userAnswer.value === q.answer.correct) {
+                    mcScore++;
+                    feedbackEl.textContent = '✔ 正確';
+                    feedbackEl.className = 'feedback correct';
+                } else {
+                    feedbackEl.textContent = '❌ 錯誤';
+                    feedbackEl.className = 'feedback incorrect';
+                }
+            });
+
+            function gradeLongAnswer(q, points, keywordThreshold) {
+                const userAnswer = document.getElementById(`ta-${q.id}`).value;
+                const feedbackEl = document.getElementById(`feedback-${q.id}`);
+                let keywordCount = 0;
+                if (userAnswer) {
+                    q.keywords.forEach(kw => {
+                        if (userAnswer.includes(kw)) {
+                            keywordCount++;
+                        }
+                    });
+                }
+                
+                let awardedPoints = 0;
+                if (keywordCount >= keywordThreshold) {
+                    awardedPoints = points;
+                } else if (keywordCount > 0) {
+                    awardedPoints = Math.floor(points * (keywordCount / keywordThreshold));
+                    if(awardedPoints < 1) awardedPoints = 1;
+                }
+
+                longScore += awardedPoints;
+                feedbackEl.textContent = `✔ (得分: ${awardedPoints}/${points})`;
+                feedbackEl.className = 'feedback correct';
+            }
+
+            gradeLongAnswer(qSet.long_medium, 2, 3);
+            gradeLongAnswer(qSet.long_high_1, 3, 4);
+            gradeLongAnswer(qSet.long_high_2, 3, 4);
+
+            const totalScore = mcScore + longScore;
+            const scoreDisplay = document.getElementById('score-display');
+            scoreDisplay.innerHTML = `<h3>總得分：${totalScore} / 10</h3><small>（長問題為自動關鍵詞評分，僅供參考）</small>`;
+
+            document.querySelectorAll('#quiz .answer').forEach(answer => {
+                answer.style.display = 'block';
+            });
+        }
+    </script>
+    
+</body>
+</html>
